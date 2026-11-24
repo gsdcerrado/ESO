@@ -50,7 +50,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Tratamento padrão de erros de rede/banco
 function tratarErro(err, mensagem) {
   console.error(err);
-  showToast(mensagem || "Ocorreu um erro. Tente novamente.", "error");
+  showToast(`${mensagem || "Ocorreu um erro."} Detalhe: ${explicarErro(err)}`, "error");
+}
+
+// Descobre o link do PDF de um módulo: pdfUrl (link completo) ou pdfArquivo (nome no bucket)
+function resolverPdfUrl(mod) {
+  if (mod.pdfUrl && mod.pdfUrl.trim() !== "") return mod.pdfUrl.trim();
+  if (mod.pdfArquivo && mod.pdfArquivo.trim() !== "") return StorageService.urlPdf(mod.pdfArquivo.trim());
+  return "";
 }
 
 // Escapa texto digitado pelo usuário antes de colocar em innerHTML (evita injeção de HTML/XSS)
@@ -86,7 +93,7 @@ function showToast(mensagem, tipo = "info") {
   setTimeout(() => {
     toast.classList.add("opacity-0", "translate-y-2");
     setTimeout(() => toast.remove(), 300);
-  }, 3600);
+  }, tipo === "error" ? 12000 : 3600);
 }
 
 // Alternar entre Portal do Aluno e Painel do Coordenador
@@ -391,14 +398,15 @@ function renderConteudoSlide() {
   const navControls = document.getElementById("slide-nav-controls");
 
   // Se o coordenador configurou um link de PDF real no CONFIG_CURSO, exibe o PDF embutido
-  if (mod.pdfUrl && mod.pdfUrl.trim() !== "") {
+  const pdfUrl = resolverPdfUrl(mod);
+  if (pdfUrl) {
     navControls.classList.add("hidden");
     corpo.innerHTML = `
       <div class="w-full h-[62vh] bg-white rounded-xl border border-stone-300 overflow-hidden flex flex-col">
-        <iframe src="${mod.pdfUrl}" class="w-full flex-1" title="Apresentação ${mod.titulo}"></iframe>
+        <iframe src="${pdfUrl}" class="w-full flex-1" title="Apresentação ${mod.titulo}"></iframe>
         <div class="bg-stone-50 px-4 py-2 border-t border-stone-200 text-xs flex justify-between items-center">
           <span class="text-stone-600">Caso o PDF não carregue no navegador, abra em nova guia:</span>
-          <a href="${mod.pdfUrl}" target="_blank" rel="noopener noreferrer" class="text-olive-800 font-bold underline">Abrir PDF Externo</a>
+          <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer" class="text-olive-800 font-bold underline">Abrir PDF Externo</a>
         </div>
       </div>
     `;
