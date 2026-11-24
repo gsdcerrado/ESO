@@ -54,6 +54,20 @@ const REGISTROS_EXEMPLO = [
   }
 ];
 
+/* Traduz erros comuns do Supabase para algo que dê para entender e corrigir */
+function explicarErro(err) {
+  const msg = String((err && (err.message || err.error_description)) || err || "");
+  const cod = (err && err.code) || "";
+  if (/SUPABASE_URL inválida/i.test(msg)) return msg;
+  if (/invalid api key|apikey/i.test(msg)) return "Chave inválida: confira SUPABASE_ANON_KEY no config.js (copie a chave 'anon public' inteira, sem espaços).";
+  if (/invalid login credentials/i.test(msg)) return "E-mail ou senha incorretos (confira EMAIL_COORDENADOR no config.js e a senha do usuário criado em Authentication > Users).";
+  if (/email not confirmed/i.test(msg)) return "Usuário ainda não confirmado: no Supabase, em Authentication > Users, confirme o usuário (ou recrie marcando 'Auto Confirm User').";
+  if (cod === "PGRST202" || /could not find the function|schema cache/i.test(msg)) return "As funções do banco não existem: rode o arquivo supabase/schema.sql no SQL Editor do Supabase.";
+  if (cod === "42P01" || /relation .* does not exist/i.test(msg)) return "A tabela 'registros' não existe: rode o arquivo supabase/schema.sql no SQL Editor do Supabase.";
+  if (/failed to fetch|networkerror|load failed/i.test(msg)) return "Não foi possível alcançar o Supabase: confira SUPABASE_URL e a conexão. Projetos gratuitos pausados também geram esse erro (veja o painel do Supabase).";
+  return msg || "erro desconhecido";
+}
+
 const normMatricula = (m) => String(m || "").trim().toUpperCase();
 
 /* ----------------------------------------------------------------------------
@@ -126,7 +140,8 @@ const LocalBackend = {
     this._coordOk = senha === CONFIG_SUPABASE.SENHA_COORDENADOR_LOCAL;
     return this._coordOk ? { ok: true } : { ok: false, erro: "Senha incorreta. Tente novamente." };
   },
-  async coordLogout() { this._coordOk = false; }
+  async coordLogout() { this._coordOk = false; },
+  urlPdf() { return ""; }
 };
 
 /* ----------------------------------------------------------------------------
@@ -140,10 +155,20 @@ const SupabaseBackend = {
   client: null,
 
   async init() {
-    this.client = window.supabase.createClient(
-      CONFIG_SUPABASE.SUPABASE_URL,
-      CONFIG_SUPABASE.SUPABASE_ANON_KEY
-    );
+    const url = CONFIG_SUPABASE.SUPABASE_URL.trim().replace(/\/+$/, "");
+    const chave = CONFIG_SUPABASE.SUPABASE_ANON_KEY.trim();
+    if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url)) {
+      throw new Error("SUPABASE_URL inválida. Use só o endereço do projeto, ex.: https://abcdefgh.supabase.co (sem /rest/v1 e sem /dashboard).");
+    }
+    this.client = window.supabase.createClient(url, chave);
+  },
+
+  // Link público de um PDF guardado no bucket (Storage) do Supabase
+  urlPdf(nomeArquivo) {
+    const { data } = this.client.storage
+      .from(CONFIG_SUPABASE.BUCKET_PDFS)
+      .getPublicUrl(nomeArquivo);
+    return data.publicUrl;
   },
 
   async getAll() {
@@ -184,7 +209,7 @@ const SupabaseBackend = {
       email: CONFIG_SUPABASE.EMAIL_COORDENADOR,
       password: senha
     });
-    return error ? { ok: false, erro: "Senha incorreta. Tente novamente." } : { ok: true };
+    return error ? { ok: false, erro: explicarErro(error) } : { ok: true };
   },
 
   async coordLogout() { await this.client.auth.signOut(); }
