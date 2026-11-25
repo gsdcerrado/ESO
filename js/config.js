@@ -73,7 +73,7 @@ const CONFIG_CURSO = {
             "O militar deve realizar o último aviso, apontando a arma e mantendo o dedo fora do gatilho até observar a reação do suspeito; persistindo a ameaça com intenção, capacidade e oportunidade de causar morte ou grave ferimento, poderá empregar a força, observados os princípios aplicáveis.",
             "O militar deve efetuar disparo de advertência antes do último aviso, pois a persistência da aproximação após a verbalização caracteriza, por si só, ameaça real.",
             "O militar deve manter a arma em posição de pronto emprego, sem apontá-la, até que o indivíduo efetue o primeiro disparo ou ataque fisicamente algum integrante da equipe.",
-            "O militar deve empregar obrigatoriamente a arma de fogo após o último aviso, independentemente da reação do suspeito, pois a desobediência reiterada caracteriza intenção hostil".
+            "O militar deve empregar obrigatoriamente a arma de fogo após o último aviso, independentemente da reação do suspeito, pois a desobediência reiterada caracteriza intenção hostil."
           ],
           correta: 0
         },
