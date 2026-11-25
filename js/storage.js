@@ -154,25 +154,35 @@ const SupabaseBackend = {
   nome: "supabase",
   client: null,
 
-  async init() {
-    const url = CONFIG_SUPABASE.SUPABASE_URL.trim().replace(/\/+$/, "");
-    const chave = CONFIG_SUPABASE.SUPABASE_ANON_KEY.trim();
+  // Cria a conexão (síncrono). Se a configuração estiver errada, lança um erro claro.
+  _iniciar() {
+    const url = String(CONFIG_SUPABASE.SUPABASE_URL || "").trim().replace(/\/+$/, "");
+    const chave = String(CONFIG_SUPABASE.SUPABASE_ANON_KEY || "").trim();
     if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url)) {
       throw new Error("SUPABASE_URL inválida. Use só o endereço do projeto, ex.: https://abcdefgh.supabase.co (sem /rest/v1 e sem /dashboard).");
     }
+    if (!chave) throw new Error("SUPABASE_ANON_KEY está vazia no config.js.");
     this.client = window.supabase.createClient(url, chave);
+  },
+
+  async init() { this._iniciar(); },
+
+  // Sempre devolve uma conexão pronta (cria na hora se ainda não existir)
+  get c() {
+    if (!this.client) this._iniciar();
+    return this.client;
   },
 
   // Link público de um PDF guardado no bucket (Storage) do Supabase
   urlPdf(nomeArquivo) {
-    const { data } = this.client.storage
+    const { data } = this.c.storage
       .from(CONFIG_SUPABASE.BUCKET_PDFS)
       .getPublicUrl(nomeArquivo);
     return data.publicUrl;
   },
 
   async getAll() {
-    const { data, error } = await this.client
+    const { data, error } = await this.c
       .from("registros")
       .select("*")
       .order("atualizado_em", { ascending: false });
@@ -181,7 +191,7 @@ const SupabaseBackend = {
   },
 
   async findByMatricula(matricula) {
-    const { data, error } = await this.client.rpc("aluno_obter", {
+    const { data, error } = await this.c.rpc("aluno_obter", {
       p_matricula: normMatricula(matricula)
     });
     if (error) throw error;
@@ -189,7 +199,7 @@ const SupabaseBackend = {
   },
 
   async upsert(registro) {
-    const { data, error } = await this.client.rpc("aluno_salvar", {
+    const { data, error } = await this.c.rpc("aluno_salvar", {
       p_registro: paraBanco(registro)
     });
     if (error) throw error;
@@ -197,7 +207,7 @@ const SupabaseBackend = {
   },
 
   async coordSessaoAtiva() {
-    const { data } = await this.client.auth.getSession();
+    const { data } = await this.c.auth.getSession();
     return Boolean(data && data.session);
   },
 
@@ -205,14 +215,14 @@ const SupabaseBackend = {
     if (!CONFIG_SUPABASE.EMAIL_COORDENADOR) {
       return { ok: false, erro: "EMAIL_COORDENADOR não configurado em js/config.js." };
     }
-    const { error } = await this.client.auth.signInWithPassword({
-      email: CONFIG_SUPABASE.EMAIL_COORDENADOR,
+    const { error } = await this.c.auth.signInWithPassword({
+      email: CONFIG_SUPABASE.EMAIL_COORDENADOR.trim(),
       password: senha
     });
     return error ? { ok: false, erro: explicarErro(error) } : { ok: true };
   },
 
-  async coordLogout() { await this.client.auth.signOut(); }
+  async coordLogout() { await this.c.auth.signOut(); }
 };
 
 /* ----------------------------------------------------------------------------
