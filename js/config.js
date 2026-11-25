@@ -19,6 +19,7 @@ const CONFIG_SUPABASE = {
   // E-mail do usuário coordenador criado em Authentication > Users no Supabase.
   // O painel pede apenas a senha desse usuário.
   EMAIL_COORDENADOR: "gsdcerrado@gmail.com",  // ex.: "coordenacao@seudominio.com"
+  BUCKET_PDFS: "ESO II_26",
 
   // Usada SOMENTE no modo local (sem Supabase), para demonstração.
   SENHA_COORDENADOR_LOCAL: "CerradoBrasil"
