@@ -13,7 +13,7 @@
  *  RLS configurado em supabase/schema.sql. NUNCA coloque a chave "service_role" aqui.
  */
 const CONFIG_SUPABASE = {
-  SUPABASE_URL: "https://albkvtgzsaojrtsyszfi.supabase.co/rest/v1/",       // ex.: "https://abcdefghijk.supabase.co"
+  SUPABASE_URL: "https://albkvtgzsaojrtsyszfi.supabase.co",       // ex.: "https://abcdefghijk.supabase.co"
   SUPABASE_ANON_KEY: "sb_publishable_-5quMxP8JMitdoZDq49P3w_4fSkr6uO",  // ex.: "eyJhbGciOi..."  (Project Settings > API > anon public)
 
   // E-mail do usuário coordenador criado em Authentication > Users no Supabase.
