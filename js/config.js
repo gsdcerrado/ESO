@@ -38,54 +38,54 @@ const CONFIG_CURSO = {
       pdfUrl: "https://albkvtgzsaojrtsyszfi.supabase.co/storage/v1/object/sign/ESO%20II_26/Modulo1.pdf?token=eyJraWQiOiJkZDcwZTk5NS1iNDkwLTQxNjItODYyNy1hYTQ5MTA4YjgwMzgiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJFU08gSUlfMjYvTW9kdWxvMS5wZGYiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzk1NTM4MjQwLCJleHAiOjE4ODE5MzgyNDB9.yVzFRgrhJ3aDnmo4Itkrv51OFIVPE_svKGZdcE8grxMpZB0G5eQVHn5RJmCfoNKij4j8tLBUb43VAeaK2rJUyg", // Exemplo: "https://seu-projeto.supabase.co/storage/v1/object/public/slides/modulo1.pdf", // Exemplo: "https://seu-projeto.supabase.co/storage/v1/object/public/slides/modulo1.pdf"
       questoes: [
         {
-          pergunta: "Qual princípio determina que o nível de força empregado pelo militar deve ser compatível com a gravidade da ameaça enfrentada?",
+          pergunta: "Durante uma ocorrência, um militar identifica um indivíduo que apresenta capacidade e oportunidade de causar grave dano à integridade física de terceiros, mas cuja intenção hostil ainda não está claramente demonstrada. Considerando o Triângulo da Força Letal e os critérios estabelecidos na instrução, assinale a alternativa correta.",
           alternativas: [
-            "Princípio da Celeridade",
-            "Princípio da Proporcionalidade",
-            "Princípio da Hierarquia Absoluta",
-            "Princípio da Impessoalidade"
+            "A presença simultânea de capacidade e oportunidade autoriza o emprego da força letal quando o indivíduo estiver armado, independentemente da demonstração de intenção.",
+            "A ausência de intenção impede o emprego da força letal, ainda que estejam presentes capacidade e oportunidade, devendo o militar observar a evolução da ameaça.",
+            "A capacidade e a oportunidade, associadas à desobediência de ordem legal, suprem a ausência de intenção, desde que o militar tenha previamente se identificado.",
+            "A intenção pode ser presumida exclusivamente pela posse de arma de fogo, desde que o indivíduo esteja em distância compatível com seu emprego."
           ],
           correta: 1
         },
         {
-          pergunta: "No escalonamento do uso da força, qual recurso antecede o emprego de técnicas de controle físico ou instrumentos de menor potencial ofensivo?",
+          pergunta: "A respeito dos princípios aplicáveis ao uso da força, considere uma situação em que o emprego de determinado meio seja necessário para conter uma ameaça, mas sua utilização naquele local e momento represente risco elevado para terceiros. Conforme a ICA 125-9, assinale a alternativa correta.",
           alternativas: [
-            "Disparo de advertência",
-            "Uso imediato de algemas",
-            "Presença ostensiva e verbalização clara",
-            "Isolamento perimetral externo"
+            "A conveniência prevalece sobre a necessidade sempre que o emprego da força representar risco elevado à população, ainda que não existam meios alternativos de contenção.",
+            "A necessidade e a conveniência devem ser observadas conjuntamente, prevalecendo a conveniência quando houver possibilidade de dano colateral.",
+            "Legalidade, necessidade e proporcionalidade devem estar sempre presentes; em caso de colisão entre necessidade e conveniência, prevalece a necessidade.",
+            "A proporcionalidade admite o emprego de qualquer meio disponível, desde que o militar esteja agindo em legítima defesa, independentemente dos riscos decorrentes do local e do momento."
           ],
           correta: 2
         },
         {
-          pergunta: "Sobre a mentalidade de segurança durante o serviço de escala, é correto afirmar que o militar deve:",
+          pergunta: "Durante uma intervenção, um suspeito inicialmente cooperativo passa a apresentar resistência verbal e, em seguida, avança agressivamente contra o militar, demonstrando intenção, capacidade e oportunidade de causar morte ou grave ferimento. Considerando os níveis de uso proporcional da força, assinale a alternativa correta.",
           alternativas: [
-            "Permanecer em estado de relaxamento total em postos internos",
-            "Manter consciência situacional constante e atenção às mãos de pessoas abordadas",
-            "Confiar exclusivamente no monitoramento eletrônico da guarda",
-            "Desativar travas de segurança do equipamento durante rondas rotineiras"
+            "A progressão dos níveis deve ocorrer obrigatoriamente de forma sucessiva, sendo vedada a passagem direta da verbalização para a força letal, ainda que configurada ameaça à vida.",
+            "A progressão pode ocorrer diretamente para a força letal, desde que presentes os elementos do Triângulo da Força Letal, sendo igualmente possível regredir os níveis caso o suspeito passe a cooperar.",
+            "A resistência verbal autoriza o emprego imediato do controle físico, enquanto a agressividade com possível dano físico exige, necessariamente, o emprego de força letal.",
+            "Uma vez iniciado o emprego de determinado nível de força, sua manutenção é obrigatória até que o suspeito esteja completamente imobilizado, mesmo que cesse a agressão."
           ],
           correta: 1
         },
         {
-          pergunta: "O emprego de arma de fogo somente é legítimo em situações extremas de:",
+          pergunta: "Durante o procedimento diante de uma ameaça potencial, um indivíduo armado desobedece às ordens de identificação e continua se aproximando do posto de serviço. O militar já solicitou reforço, buscou abrigo e realizou a verbalização. Considerando a sequência prevista na instrução, assinale a alternativa correta.",
           alternativas: [
-            "Desobediência verbal simples sem risco físico",
-            "Fuga de indivíduo desarmado que não oferece risco à vida",
-            "Legítima defesa própria ou de terceiros contra perigo atual ou iminente de morte ou lesão grave",
-            "Perturbação sonora nas imediações da organização militar"
-          ],
-          correta: 2
-        },
-        {
-          pergunta: "A manutenção da mentalidade de segurança após uma ocorrência exige:",
-          alternativas: [
-            "Inspeção imediata do equipamento, conferência de munições e relato fiel dos fatos",
-            "Dispensa do registro em livro de partes se não houver disparo",
-            "Guarda do armamento sem verificação de integridade",
-            "Substituição automática de toda a equipe de serviço"
+            "O militar deve realizar o último aviso, apontando a arma e mantendo o dedo fora do gatilho até observar a reação do suspeito; persistindo a ameaça com intenção, capacidade e oportunidade de causar morte ou grave ferimento, poderá empregar a força, observados os princípios aplicáveis.",
+            "O militar deve efetuar disparo de advertência antes do último aviso, pois a persistência da aproximação após a verbalização caracteriza, por si só, ameaça real.",
+            "O militar deve manter a arma em posição de pronto emprego, sem apontá-la, até que o indivíduo efetue o primeiro disparo ou ataque fisicamente algum integrante da equipe.",
+            "O militar deve empregar obrigatoriamente a arma de fogo após o último aviso, independentemente da reação do suspeito, pois a desobediência reiterada caracteriza intenção hostil.
           ],
           correta: 0
+        },
+        {
+          pergunta: "No âmbito do Programa de Educação da Mentalidade de Segurança Integrada (PEMSI), a Comissão responsável pelo planejamento das atividades anuais possui atribuições distribuídas entre diferentes funções. Considerando a estrutura apresentada na ICA 205-52, assinale a alternativa correta.",
+          alternativas: [
+            "Compete ao vice-presidente organizar as metodologias de palestras, workshops, avaliações e inspeções, enquanto o secretário substitui o presidente em caso de necessidade.",
+            "Compete aos adjuntos executar diretamente as ações planejadas pela Comissão, enquanto os elos setoriais reúnem material de apoio e auxiliam na divulgação.",
+            "Compete ao presidente planejar, coordenar e executar as atividades; ao vice-presidente, substituí-lo quando necessário; e aos elos setoriais, executar as ações planejadas pela Comissão.",
+            "Compete ao secretário planejar e coordenar todas as atividades anuais, enquanto o presidente se restringe à aprovação das propostas elaboradas pelos adjuntos."
+          ],
+          correta: 2
         }
       ]
     },
