@@ -97,52 +97,52 @@ const CONFIG_CURSO = {
       pdfUrl: "https://albkvtgzsaojrtsyszfi.supabase.co/storage/v1/object/sign/ESO%20II_26/Modulo2.pdf?token=eyJraWQiOiJkZDcwZTk5NS1iNDkwLTQxNjItODYyNy1hYTQ5MTA4YjgwMzgiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJFU08gSUlfMjYvTW9kdWxvMi5wZGYiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzk1NTM4MzI4LCJleHAiOjE4ODE5MzgzMjh9.XuotILUJqgTa1Ww_289BBBNs5erTiAeaccWOkuwd0Oxf7wt6kxRvPs-QfoRXEWt5Hm6t5_ywZZt7PW5H714dNg",
       questoes: [
         {
-          pergunta: "Qual é a primeira medida obrigatória antes de autorizar a entrada de um visitante civil na Organização Militar?",
+          pergunta: "Durante o serviço de identificação, um militar do efetivo aproxima-se a pé do portão de acesso. O Identificador reconhece visualmente o indivíduo, mas observa comportamento agitado e um volume aparentemente suspeito. Considerando os procedimentos de triagem de pedestres, assinale a alternativa correta.",
           alternativas: [
-            "Liberar o acesso mediante palavra verbal de conhecimento",
-            "Exigir documento de identificação oficial com foto, registrar a entrada e fornecer crachá visível",
-            "Permitir circulação livre até que o setor de destino o localize",
-            "Reter o aparelho celular e liberar sem registro"
+            "O reconhecimento visual autoriza o ingresso sem apresentação de documento, independentemente das circunstâncias observadas, uma vez que a identificação prévia prevalece sobre os indícios comportamentais.",
+            "O Identificador deverá solicitar documento de identificação, pois o reconhecimento visual não o exime de identificar o indivíduo diante de situação suspeita.",
+            "O indivíduo deverá ser encaminhado obrigatoriamente à Central de Visitantes, pois qualquer comportamento suspeito descaracteriza o reconhecimento como integrante do efetivo.",
+            "O ingresso poderá ser autorizado mediante confirmação verbal do posto de serviço, sendo dispensável a identificação documental quando houver reconhecimento visual prévio."
           ],
           correta: 1
         },
         {
-          pergunta: "Durante o controle noturno de veículos no portão principal, o procedimento padrão inclui:",
+          pergunta: "Um veículo particular devidamente cadastrado aproxima-se do portão da OM. O condutor, entretanto, não é reconhecido pelo Identificador, embora apresente o adesivo identificador e o adesivo de controle anual válidos. No interior do veículo encontram-se dois militares e um passageiro civil sem vínculo com o efetivo. Nesse caso, o Identificador deverá:",
           alternativas: [
-            "Manter os faróis altos do veículo ligados para iluminar a guarita",
-            "Solicitar a redução dos faróis, abertura dos vidros e identificação de todos os ocupantes",
-            "Dispensar conferência de ocupantes traseiros em veículos particulares",
-            "Realizar a abordagem posicionando-se diretamente à frente do para-choque"
-          ],
-          correta: 1
-        },
-        {
-          pergunta: "Para inspeção de veículos de entrega ou sem credenciamento permanente, qual item deve ser verificado com atenção?",
-          alternativas: [
-            "Apenas o documento do condutor",
-            "Compartimento de carga, porta-malas e parte inferior do chassi (com espelho de inspeção)",
-            "Exclusivamente o nível de combustível do veículo",
-            "Somente a placa dianteira do automóvel"
-          ],
-          correta: 1
-        },
-        {
-          pergunta: "O uso do crachá de identificação por visitantes e prestadores de serviço deve ocorrer:",
-          alternativas: [
-            "Apenas no momento da entrada na guarita",
-            "Guardado no bolso para evitar extravio",
-            "Em local visível na parte superior do tronco durante toda a permanência na unidade",
-            "Somente quando solicitado por oficial de dia"
+            "Permitir o ingresso, uma vez que a regularidade dos adesivos comprova a autorização do veículo e se estende automaticamente a todos os seus ocupantes.",
+            "Solicitar a identificação apenas do condutor, registrando os dados do veículo e permitindo o ingresso dos demais ocupantes mediante apresentação dos respectivos crachás no destino.",
+            "Identificar o condutor e todos os ocupantes, registrar os dados e encaminhar à Central de Visitantes aquele que não pertence ao efetivo.",
+            "Encaminhar obrigatoriamente todos os ocupantes à Central de Visitantes, pois o não reconhecimento do condutor invalida a credencial do veículo."
           ],
           correta: 2
         },
         {
-          pergunta: "Ao detectar um objeto proibido ou suspeito na bagagem de um visitante durante a triagem, a equipe de guarda deve:",
+          pergunta: "Um militar do efetivo apresenta-se à portaria, em março, conduzindo veículo particular cadastrado, cujo adesivo identificador permanece válido, mas cujo adesivo de controle anual corresponde ao ano anterior. Considerando os procedimentos previstos para a atualização anual dos adesivos, assinale a alternativa correta.",
           alternativas: [
-            "Ignorar caso o visitante alegue esquecimento",
-            "Impedir o ingresso, manter distância segura, acionar o Comandante da Guarda/Oficial de Dia e seguir o protocolo de segurança",
-            "Confiscar o objeto sem registro e liberar o visitante",
-            "Abrir imediatamente o volume sem equipamento ou supervisão"
+            "O militar poderá ingressar normalmente, pois o adesivo identificador permanece válido e a atualização do controle anual somente será obrigatória após o encerramento do primeiro trimestre.",
+            "O veículo deverá ser identificado na condição de visitante e encaminhado à Central de Visitantes, devendo permanecer submetido a esse procedimento até a atualização do adesivo anual.",
+            "O Identificador deverá recolher o adesivo vencido e substituí-lo por um adesivo provisório, mantendo a condição de veículo cadastrado até a regularização junto ao setor de credenciamento.",
+            "O ingresso poderá ser autorizado mediante apresentação da identidade militar e do documento do veículo, uma vez que a condição de integrante do efetivo prevalece sobre a validade do adesivo anual."
+          ],
+          correta: 1
+        },
+        {
+          pergunta: "Às 23h, um caminhão baú de uma empresa prestadora de serviços apresenta-se à portaria para realizar uma entrega. O motorista informa que possui autorização do setor destinatário, mas não apresenta autorização prévia do Comandante da OM. Considerando os procedimentos previstos para o período entre 22h e 06h, bem como as regras de acesso de veículos de entrega, assinale a alternativa correta.",
+          alternativas: [
+            "O ingresso poderá ser autorizado mediante confirmação do setor destinatário, desde que o caminhão seja submetido à inspeção do compartimento de carga e todos os ocupantes sejam identificados.",
+            "O caminhão deverá ser encaminhado à Central de Visitantes, onde permanecerá aguardando autorização do Oficial de Dia, sendo dispensada a autorização do Comandante quando se tratar de entrega previamente solicitada.",
+            "O motorista deverá ser orientado a retornar durante o horário de expediente para realizar a entrega, salvo mediante autorização do Comandante; no período noturno, os portões devem permanecer trancados e veículos e volumes devem ser inspecionados.",
+            "O ingresso poderá ser autorizado pelo Identificador, desde que o compartimento de carga seja inspecionado na entrada e na saída, uma vez que essa inspeção constitui requisito suficiente para o acesso de caminhões baú."
+          ],
+          correta: 2
+        },
+        {
+          pergunta: "Uma Organização Militar recebe dois estrangeiros para atividades institucionais: o primeiro permanecerá por 12 dias e o segundo por 20 dias. Considerando as regras específicas de identificação e circulação de estrangeiros, assinale a alternativa correta.",
+          alternativas: [
+            "Ambos deverão receber crachá não personalizado com a inscrição ESTRANGEIRO, diferenciando-se apenas pela validade da credencial concedida.",
+            "O primeiro receberá crachá não personalizado com a inscrição ESTRANGEIRO, enquanto o segundo receberá crachá personalizado, com a inscrição ESTRANGEIRO no campo Cargo/Função; ambos deverão permanecer acompanhados durante todo o trânsito no interior da OM.",
+            "O primeiro receberá crachá personalizado, enquanto o segundo receberá crachá não personalizado, pois a permanência superior a 15 dias dispensa a identificação individualizada.",
+            "Ambos deverão receber crachá personalizado, com a inscrição ESTRANGEIRO no campo Cargo/Função, sendo obrigatório o acompanhamento apenas durante os primeiros 15 dias de permanência."
           ],
           correta: 1
         }
