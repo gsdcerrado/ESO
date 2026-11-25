@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico da conexão</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; color: #292524; }
+    h1 { font-size: 1.3rem; }
+    .linha { padding: .6rem .8rem; border-radius: 8px; margin: .5rem 0; border: 1px solid #d6d3d1; }
+    .ok   { background: #ecfdf5; border-color: #6ee7b7; }
+    .erro { background: #fef2f2; border-color: #fca5a5; }
+    .aviso{ background: #fffbeb; border-color: #fcd34d; }
+    small { display: block; color: #57534e; margin-top: .25rem; word-break: break-all; }
+    input { padding: .5rem; border: 1px solid #a8a29e; border-radius: 6px; width: 100%; box-sizing: border-box; margin: .25rem 0 .5rem; }
+    button { padding: .6rem 1rem; border: 0; border-radius: 6px; background: #2d3a28; color: #fff; font-weight: 600; cursor: pointer; }
+    fieldset { border: 1px solid #d6d3d1; border-radius: 8px; margin: 1.2rem 0; }
+  </style>
+</head>
+<body>
+  <h1>Diagnóstico da conexão com o Supabase</h1>
+  <p>Esta página testa cada etapa e mostra onde está o problema. Nenhum dado é alterado.</p>
+
+  <div id="resultado"></div>
+
+  <fieldset>
+    <legend>Testar login do coordenador</legend>
+    <label>Senha do usuário coordenador (a mesma criada em Authentication → Users)</label>
+    <input type="password" id="senha" autocomplete="off" />
+    <button onclick="testarLogin()">Testar login</button>
+    <div id="res-login"></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Testar um PDF do bucket</legend>
+    <label>Nome do arquivo no bucket (ex.: modulo1.pdf)</label>
+    <input type="text" id="arquivo" />
+    <button onclick="testarPdf()">Testar PDF</button>
+    <div id="res-pdf"></div>
+  </fieldset>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+    function linha(alvo, tipo, titulo, detalhe) {
+      const d = document.createElement("div");
+      d.className = "linha " + tipo;
+      const icone = tipo === "ok" ? "✅ " : tipo === "erro" ? "❌ " : "⚠️ ";
+      d.innerHTML = "<strong></strong><small></small>";
+      d.querySelector("strong").textContent = icone + titulo;
+      d.querySelector("small").textContent = detalhe || "";
+      document.getElementById(alvo).appendChild(d);
+    }
+    const R = (t, ti, de) => linha("resultado", t, ti, de);
+
+    async function rodar() {
+      const url = String(CONFIG_SUPABASE.SUPABASE_URL || "").trim();
+      const chave = String(CONFIG_SUPABASE.SUPABASE_ANON_KEY || "").trim();
+
+      // 1) Biblioteca
+      if (!window.supabase) { R("erro", "Biblioteca do Supabase não carregou", "Verifique a internet ou bloqueadores de anúncio/rede."); return; }
+      R("ok", "Biblioteca do Supabase carregada");
+
+      // 2) URL
+      if (!url) { R("erro", "SUPABASE_URL está vazia", "Preencha no js/config.js"); return; }
+      if (!/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(url)) {
+        R("erro", "SUPABASE_URL com formato errado", "Valor atual: " + url + " — o correto é só https://xxxxxxxx.supabase.co (sem /dashboard, sem /rest/v1)."); return;
+      }
+      R("ok", "SUPABASE_URL com formato correto", url);
+
+      // 3) Chave
+      if (!chave) { R("erro", "SUPABASE_ANON_KEY está vazia", "Preencha no js/config.js"); return; }
+      const partes = chave.split(".").length;
+      if (chave.startsWith("eyJ") && partes === 3) R("ok", "Chave anon com formato correto (eyJ...)");
+      else if (chave.startsWith("sb_publishable_")) R("aviso", "Você usou a chave 'publishable'", "Costuma funcionar, mas se der erro use a chave 'anon' (aba Legacy API keys).");
+      else if (chave.startsWith("sb_secret_") || chave.includes("service_role")) { R("erro", "Esta parece ser uma chave SECRETA", "NUNCA coloque no site. Troque pela chave 'anon public'."); return; }
+      else R("aviso", "Formato da chave estranho", "A chave anon começa com eyJ e tem 3 partes separadas por ponto. Confira se copiou inteira.");
+
+      // 4) Funções do banco (schema.sql)
+      try {
+        const { data, error } = await SupabaseBackend.c.rpc("aluno_obter", { p_matricula: "DIAGNOSTICO-TESTE" });
+        if (error) throw error;
+        R("ok", "Banco respondeu e a função aluno_obter existe", "O schema.sql foi executado corretamente.");
+      } catch (e) {
+        R("erro", "Falha ao consultar o banco", explicarErro(e) + "  [" + (e.message || e) + "]");
+      }
+
+      // 5) Tabela protegida (deve negar/retornar vazio para público)
+      try {
+        const { data, error } = await SupabaseBackend.c.from("registros").select("matricula").limit(1);
+        if (error && /does not exist|42P01/.test(error.message + error.code)) R("erro", "Tabela 'registros' não existe", "Rode o supabase/schema.sql no SQL Editor.");
+        else if (!error && data.length === 0) R("ok", "Tabela 'registros' protegida", "Visitantes não conseguem listar os alunos (correto).");
+        else if (!error) R("aviso", "Tabela acessível ao público", "Há registros visíveis sem login (RLS pode estar desligado). Rode o schema.sql novamente.");
+        else R("ok", "Tabela 'registros' protegida", error.message);
+      } catch (e) { R("aviso", "Não foi possível verificar a tabela", String(e.message || e)); }
+
+      // 6) E-mail do coordenador
+      const em = String(CONFIG_SUPABASE.EMAIL_COORDENADOR || "").trim();
+      if (!em) R("erro", "EMAIL_COORDENADOR está vazio", "Preencha no js/config.js com o e-mail do usuário criado em Authentication → Users.");
+      else R("ok", "EMAIL_COORDENADOR preenchido", em + "  (confira se é idêntico ao e-mail em Authentication → Users)");
+      R("aviso", "Bucket configurado", "BUCKET_PDFS = " + (CONFIG_SUPABASE.BUCKET_PDFS || "(não definido)"));
+    }
+
+    async function testarLogin() {
+      const alvo = document.getElementById("res-login"); alvo.innerHTML = "";
+      try {
+        const { error } = await SupabaseBackend.c.auth.signInWithPassword({
+          email: String(CONFIG_SUPABASE.EMAIL_COORDENADOR || "").trim(),
+          password: document.getElementById("senha").value
+        });
+        if (error) linha("res-login", "erro", "Login recusado", explicarErro(error) + "  [mensagem original: " + error.message + "]");
+        else { linha("res-login", "ok", "Login do coordenador funcionou!"); await SupabaseBackend.c.auth.signOut(); }
+      } catch (e) { linha("res-login", "erro", "Erro", explicarErro(e)); }
+    }
+
+    async function testarPdf() {
+      const alvo = document.getElementById("res-pdf"); alvo.innerHTML = "";
+      const nome = document.getElementById("arquivo").value.trim();
+      if (!nome) return;
+      try {
+        const url = SupabaseBackend.urlPdf(nome);
+        const r = await fetch(url, { method: "HEAD" });
+        if (r.ok) linha("res-pdf", "ok", "PDF encontrado e público", url);
+        else linha("res-pdf", "erro", "PDF não acessível (HTTP " + r.status + ")",
+          "Verifique: 1) o nome do arquivo (maiúsculas, acentos, espaços); 2) se o bucket '" + CONFIG_SUPABASE.BUCKET_PDFS + "' está marcado como Public. Link testado: " + url);
+      } catch (e) { linha("res-pdf", "erro", "Falha ao testar", String(e.message || e)); }
+    }
+
+    rodar();
+  </script>
+</body>
+</html>
