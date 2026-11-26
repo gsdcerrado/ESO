@@ -182,54 +182,54 @@ const CONFIG_CURSO = {
       ],
       questoes: [
         {
-          pergunta: "Na comunicação rádio operacional, qual o significado correto dos códigos 'QTH' e 'QSL'?",
+          pergunta: "Durante o serviço, um operador recebe um equipamento rádio e precisa verificar seu funcionamento. Considerando os procedimentos de operação e segurança das comunicações, assinale a alternativa correta.",
           alternativas: [
-            "QTH = Localização / Endereço; QSL = Entendido / Confirmado",
-            "QTH = Emergência médica; QSL = Aguardar na frequência",
-            "QTH = Fim de transmissão; QSL = Solicito reforço imediato",
-            "QTH = Abastecimento; QSL = Interferência na rede"
+            "Deve aguardar a rede ficar livre, posicionar-se a cinco a dez centímetros do microfone e chamar a Central de Comunicações para verificar a clareza e a intensidade dos sinais. Mensagens sigilosas exigem criptografia, ainda que seja empregado o Código Q.",
+            "Deve chamar diretamente a estação mais próxima, informar seu nome e solicitar a confirmação da potência do equipamento. O Código Q pode substituir a criptografia quando a mensagem for curta.",
+            "Deve realizar o teste transmitindo uma mensagem geral, preferencialmente em potência máxima, para verificar o alcance do equipamento. A autenticação das estações pode ser dispensada quando os indicativos forem conhecidos.",
+            "Deve solicitar à Central de Comunicações a liberação de uma frequência alternativa antes de qualquer transmissão. A distância entre a boca e o microfone deve ser superior a dez centímetros para evitar interferências."
           ],
           correta: 0
         },
         {
-          pergunta: "Antes de iniciar o deslocamento com uma viatura operacional, a manutenção de 1º escalão realizada pelo motorista exige verificar:",
+          pergunta: "Uma equipe identifica interferência deliberada nas comunicações rádio durante uma operação. Considerando as orientações do módulo, qual conduta está de acordo com o procedimento previsto?",
           alternativas: [
-            "Apenas se há combustível suficiente para o turno",
-            "Níveis de óleo e água, calibragem dos pneus, luzes, freios, sinalizadores e itens obrigatórios",
-            "Somente a limpeza interna da cabine",
-            "Exclusivamente a pressão do pneu sobressalente"
+            "Interromper imediatamente todas as transmissões, alterar a frequência sem comunicação à chefia e aguardar a normalização do sinal para relatar a ocorrência.",
+            "Procurar a fonte da interferência e continuar transmitindo, salvo ordem em contrário, reportando à chefia a data e hora, as frequências utilizadas, o tipo e a magnitude da interferência e a estação afetada.",
+            "Retirar a antena do equipamento e, caso a interferência diminua, classificá-la como gerada no próprio transceptor; caso permaneça, classificá-la como externa.",
+            "Manter as transmissões normalmente, evitando comunicar a ocorrência à chefia até que seja possível identificar com precisão o responsável pela interferência."
           ],
           correta: 1
         },
         {
-          pergunta: "Sobre a disciplina de rede rádio, qual conduta compromete a eficiência operacional?",
+          pergunta: "Sobre o Sistema Pacificador, suas atribuições e regras de utilização, assinale a alternativa correta.",
           alternativas: [
-            "Pressionar o PTT, aguardar 1 segundo e falar com clareza",
-            "Utilizar o alfabeto fonético para soletrar placas ou siglas",
-            "Transmitir mensagens longas, usar gírias ou sobrepor outra estação já modulando",
-            "Informar alteração de QTH à central de operações"
+            "O aplicativo Pacificador Móvel pode ser instalado em dispositivos particulares, desde que o usuário mantenha suas credenciais sob sigilo e esteja vinculado a uma operação de Segurança e Defesa.",
+            "O COp Treinamento é destinado ao registro de incidentes reais e simulados, sendo os registros reais preservados para consulta posterior e os simulados excluídos ao término do exercício.",
+            "O gerenciamento local do sistema é atribuído à SOP-02 da USEGDEF, responsável por cadastrar e instruir usuários; as credenciais são pessoais e não podem ser utilizadas por terceiros.",
+            "A criação de Centros de Operações e a atualização de usuários devem ser solicitadas diretamente pelos operadores ao COMPREP, sem intermediação da Seção de Operações da USEGDEF."
           ],
           correta: 2
         },
         {
-          pergunta: "Em deslocamento de urgência com sinais luminosos e sonoros acionados, o condutor da viatura deve:",
+          pergunta: "Durante a inspeção de uma viatura operacional, o motorista identifica desgaste nos freios, nível inadequado de óleo do motor e falha em uma das luzes de sinalização. Considerando o check list e as orientações de manutenção, assinale a alternativa correta.",
           alternativas: [
-            "Cruzar sinais vermelhos em alta velocidade sem reduzir",
-            "Reduzir a velocidade nos cruzamentos, certificar-se de que os demais veículos cederam passagem e manter direção defensiva",
-            "Dispensar o uso do cinto de segurança para agilizar o desembarque",
-            "Trafegar na contramão sem visibilidade"
+            "O motorista deve registrar apenas as falhas que comprometam imediatamente a mobilidade da viatura, pois itens de sinalização e fluidos são verificados exclusivamente pela Unidade Apoiadora.",
+            "O desgaste dos freios e o nível de óleo são itens de manutenção corretiva, cuja verificação deve ocorrer apenas durante as revisões previstas pelo fabricante; a falha de sinalização pode ser corrigida pelo motorista sem registro.",
+            "O check list deve contemplar fluidos, motor, elétrica, iluminação, sinalização, cabine e rodagem, além do estado geral e da limpeza. A manutenção deve ser coordenada com a Unidade Apoiadora, respeitando-se os prazos do fabricante e evitando o emprego de viatura que necessite de manutenção corretiva.",
+            "A manutenção de primeiro escalão compreende a substituição de componentes elétricos e a recuperação dos sistemas de freio, enquanto a manutenção corretiva se limita à remoção de impurezas, calibragem e verificação de vazamentos."
           ],
-          correta: 1
+          correta: 2
         },
         {
-          pergunta: "Ao realizar manobra de marcha à ré com viatura em pátios internos ou áreas de visibilidade reduzida, deve-se:",
+          pergunta: "Em relação aos sistemas de redundância da comunicação rádio e aos tipos de equipamentos, assinale a alternativa correta.",
           alternativas: [
-            "Confiar apenas no retrovisor interno",
-            "Desembarcar o auxiliar de viatura para balizar a manobra em ponto visível ao motorista",
-            "Acelerar rapidamente para concluir a manobra",
-            "Desligar os faróis para evitar reflexo"
+            "Os rádios fixos são empregados nas estações controladoras e apresentam bom alcance devido à maior potência; os portáteis do tipo manpack são transportados em mochilas por patrulhas a pé; e os repetidores utilizam dois transceptores para ampliar a potência e eliminar áreas de sombra.",
+            "Os rádios ultraportáteis (HT) são destinados exclusivamente às estações controladoras, enquanto os equipamentos manpack são empregados nas equipes de reação e nos postos fixos, por apresentarem potência aproximada de cinco watts.",
+            "A telefonia de campanha constitui o primeiro nível de redundância, seguida pelos sinais e gestos, celulares e telefonia convencional. A reserva técnica deve corresponder a 20% apenas dos equipamentos rádio, sem incluir acessórios.",
+            "Os repetidores são equipamentos compostos por um único transceptor, instalados em locais baixos para reduzir a propagação do sinal para áreas externas à operação. Sua principal finalidade é substituir a rede rádio em caso de falha."
           ],
-          correta: 1
+          correta: 0
         }
       ]
     },
