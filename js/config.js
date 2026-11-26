@@ -268,54 +268,54 @@ const CONFIG_CURSO = {
       ],
       questoes: [
         {
-          pergunta: "Ao identificar um pacote abandonado e suspeito de conter artefato explosivo nas dependências da unidade, qual é a conduta imediata correta?",
+          pergunta: "Durante uma atividade de vigilância, a Equipe de Serviço identifica um indivíduo que, em dias consecutivos, fotografa as instalações da OM, observa os horários de rendição dos postos e realiza perguntas sobre a estrutura operacional e o armamento empregado pelos militares. Considerando as etapas de preparação de um ato hostil, assinale a alternativa correta.",
           alternativas: [
-            "Abrir cuidadosamente o pacote para confirmar o conteúdo",
-            "Transportar o objeto para uma área aberta afastada",
-            "Não tocar, não mover, evacuar a área, isolar o perímetro e acionar a equipe especializada (sem usar rádio próximo ao objeto)",
-            "Jogar água sobre o pacote para neutralizar eventual circuito"
-          ],
-          correta: 2
-        },
-        {
-          pergunta: "No gerenciamento de crises, quais são as três medidas imediatas do primeiro militar que chega ao local da ocorrência?",
-          alternativas: [
-            "Invadir o recinto, apreender objetos e liberar a imprensa",
-            "Conter a crise, isolar o perímetro e solicitar apoio do escalão superior / equipe especializada",
-            "Iniciar negociação tática avançada sozinho",
-            "Aguardar o encerramento espontâneo sem intervir"
+            "A observação das instalações caracteriza monitoramento, enquanto as perguntas sobre armamento caracterizam necessariamente revisão dos planos, uma vez que envolvem a obtenção de informações operacionais.",
+            "A fotografia das instalações caracteriza vigilância; a obtenção de informações sobre a rotina e o armamento caracteriza monitoramento; e a observação dos horários de rendição pode subsidiar a revisão dos planos.",
+            "As condutas descritas caracterizam exclusivamente vigilância, pois monitoramento pressupõe acesso não autorizado a documentos ou sistemas internos da Organização Militar.",
+            "A revisão dos planos corresponde ao pré-posicionamento de pessoal e equipamentos no terreno, enquanto o monitoramento se restringe à observação física dos postos de serviço."
           ],
           correta: 1
         },
         {
-          pergunta: "Qual das alternativas apresenta corretamente uma das Regras Fundamentais de Segurança no manuseio de armamentos?",
+          pergunta: "Durante uma ocorrência, um criminoso armado mantém um refém no interior de uma instalação militar. Simultaneamente, a Equipe de Serviço avalia a possibilidade de intervenção, mas conclui que não dispõe de capacitação técnica e meios suficientes para solucionar a situação com segurança. Considerando a classificação dos graus de crise e os critérios de decisão, assinale a alternativa correta.",
           alternativas: [
-            "O dedo deve permanecer apoiado no gatilho sempre que a arma estiver fora do coldre",
-            "Após retirar o carregador, a arma pode ser apontada livremente pois já está desmuniciada",
-            "Trate toda arma como se estivesse carregada e mantenha o dedo fora do gatilho até o momento efetivo do disparo",
-            "A conferência visual da câmara dispensa a verificação tátil em ambiente pouco iluminado"
-          ],
-          correta: 2
-        },
-        {
-          pergunta: "Durante a passagem de serviço e recebimento de armamento na reserva/guarda, o militar deve:",
-          alternativas: [
-            "Apenas assinar a cautela confiando na conferência do militar anterior",
-            "Executar o procedimento de inspeção de segurança em local apropriado (caixa de areia), retirando carregador e verificando câmara aberta",
-            "Acionar o gatilho para testar o percussor antes de retirar o carregador",
-            "Realizar a limpeza com munição próxima à bancada"
+            "A ocorrência caracteriza crise de Grau 1, pois o risco imediato está concentrado na integridade física do causador e do refém; a Equipe deverá intervir antes da chegada de tropas especializadas para evitar o agravamento da situação.",
+            "A ocorrência caracteriza crise de Grau 2, classificada como de altíssimo risco; diante da ausência de condições para uma solução segura, a Equipe deverá realizar o cerco do ponto crítico, se possível.",
+            "A ocorrência caracteriza crise de Grau 3, pois toda situação envolvendo reféns constitui crise extraordinária; a Equipe deverá realizar a contenção e o isolamento, independentemente de sua capacidade técnica.",
+            "A ocorrência caracteriza crise de Grau 4, pois a possibilidade de dano a inocentes ultrapassa os limites físicos do local; a decisão de intervenção deverá considerar exclusivamente a aceitabilidade legal."
           ],
           correta: 1
         },
         {
-          pergunta: "Na prevenção a ataques terroristas e sabotagem em instalações militares, considera-se indicador de alerta:",
+          pergunta: "Em uma crise de segurança, o Comandante da OM determina a constituição do Gabinete de Crise e o estabelecimento de um perímetro de segurança. Considerando as duas linhas de isolamento previstas na apresentação, assinale a alternativa correta.",
           alternativas: [
-            "Indivíduos fotografando pontos sensíveis, cercas, guaritas ou rotinas de troca de guarda sem autorização",
-            "Militares fardados realizando inspeção de rotina no perímetro",
-            "Viaturas oficiais devidamente identificadas em deslocamento programado",
-            "Manutenção agendada de iluminação perimetral"
+            "A primeira linha, denominada isolamento, impede a entrada de pessoas e de apoio externo, enquanto a segunda linha, denominada contenção, impede que os causadores ampliem sua área de domínio ou obtenham recursos.",
+            "A primeira linha, denominada contenção, busca impedir a ampliação da área de domínio dos causadores, enquanto a segunda linha, denominada isolamento, envolve a primeira e restringe a entrada de pessoas e o apoio externo.",
+            "A primeira linha, denominada contenção, destina-se exclusivamente a impedir a fuga dos causadores, enquanto a segunda linha, denominada isolamento, permite a circulação de pessoas não envolvidas, desde que autorizadas pelo negociador.",
+            "A primeira linha, denominada isolamento, direciona as comunicações ao negociador, enquanto a segunda linha, denominada contenção, impede a divulgação de imagens pela imprensa e restringe o acesso de equipes especializadas."
           ],
-          correta: 0
+          correta: 1
+        },
+        {
+          pergunta: "A Equipe de Serviço recebe uma ligação telefônica anônima informando a existência de um artefato explosivo no interior da OM. O interlocutor demonstra nervosismo, utiliza linguagem pouco natural e não fornece informações técnicas sobre o suposto dispositivo. Considerando os procedimentos previstos para ameaças e suspeitas de bomba, assinale a alternativa correta.",
+          alternativas: [
+            "A ameaça deverá ser imediatamente classificada como falsa, pois a ausência de informações técnicas e o comportamento atípico do interlocutor são suficientes para afastar a possibilidade de existência de artefato explosivo.",
+            "O militar deverá manter-se interessado e tranquilo, observar características da voz, ruídos de fundo e linguagem, registrar as informações no formulário próprio e encaminhá-las para avaliação; a decisão de evacuação compete ao Gabinete de Crise.",
+            "A Equipe de Serviço deverá determinar a evacuação total da OM e, posteriormente, realizar a busca pelo artefato, uma vez que a existência de ameaça telefônica torna obrigatória a retirada de todo o efetivo.",
+            "A ameaça somente poderá ser considerada real após a localização visual do artefato, cabendo à Equipe de Serviço verificar sua existência mediante inspeção do local indicado pelo interlocutor."
+          ],
+          correta: 1
+        },
+        {
+          pergunta: "Durante o serviço de guarda, um soldado do terço de descanso recolhe-se ao alojamento portando sua pistola, cujo carregador permanece municiado, mas sem cartucho na câmara. Considerando os procedimentos de recolhimento do armamento e as condições de emprego da arma, assinale a alternativa correta.",
+          alternativas: [
+            "O procedimento está correto, pois a condição de arma alimentada exige apenas o carregador municiado inserido, sendo permitido ao militar permanecer armado no alojamento durante o período de descanso.",
+            "O procedimento está incorreto, pois os soldados não podem ingressar armados nos alojamentos; o armamento deve ser entregue aberto e sem carregador ao graduado de serviço armado, enquanto o carregador municiado pode permanecer com o militar.",
+            "O procedimento está incorreto, pois a condição de arma carregada corresponde àquela em que o carregador municiado está inserido, independentemente da presença de cartucho na câmara; o militar deverá entregar a arma descarregada e o carregador desmuniciado.",
+            "O procedimento está correto desde que o Comandante da Guarda tenha autorizado previamente o recolhimento ao alojamento, pois a restrição ao porte de armamento se aplica exclusivamente ao terço de prontidão."
+          ],
+          correta: 1
         }
       ]
     }
