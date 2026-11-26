@@ -153,7 +153,7 @@ const CONFIG_CURSO = {
       numero: 3,
       titulo: "Comunicação Rádio e Uso de Viaturas Operacionais",
       descricao: "Disciplina de rede rádio, código Q, alfabeto fonético, inspeção de 1º escalão em viaturas e direção defensiva.",
-      pdfUrl: "",
+      pdfUrl: "https://albkvtgzsaojrtsyszfi.supabase.co/storage/v1/object/sign/ESO%20II_26/Modulo3.pdf?token=eyJraWQiOiJkZDcwZTk5NS1iNDkwLTQxNjItODYyNy1hYTQ5MTA4YjgwMzgiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJFU08gSUlfMjYvTW9kdWxvMy5wZGYiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzk1NzE2Mjk2LCJleHAiOjE4ODIxMTYyOTZ9.0wKcx9_OggeAeRbjmuDSYJUddo5vTl7JlAI8M_usaL3bjHr5odLrqb5lyd9TdidITv2sP_E1Nu93p5u9jH9ntA",
       slidesResumo: [
         {
           titulo: "1. Disciplina na Rede Rádio e Código Q",
@@ -238,7 +238,7 @@ const CONFIG_CURSO = {
       numero: 4,
       titulo: "Gerenciamento de Crises, Prevenção a Ataques Terroristas e Prevenção de Acidentes com Armamentos",
       descricao: "Contenção e isolamento em crises, identificação de ameaças explosivas/terroristas e as 4 regras de ouro do armamento.",
-      pdfUrl: "",
+      pdfUrl: "https://albkvtgzsaojrtsyszfi.supabase.co/storage/v1/object/sign/ESO%20II_26/Modulo4.pdf?token=eyJraWQiOiJkZDcwZTk5NS1iNDkwLTQxNjItODYyNy1hYTQ5MTA4YjgwMzgiLCJhbGciOiJFUzI1NiJ9.eyJ1cmwiOiJFU08gSUlfMjYvTW9kdWxvNC5wZGYiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzk1NzE2MzY3LCJleHAiOjE4ODIxMTYzNjd9.ZJYbEsAfer9wTrVR_2cu5oxf_jj0KGFa3ccO-c_mEF2-PCBE_5VZahCB4d5LpNED3BN4rPj7eMNssvpbqil3Rw",
       slidesResumo: [
         {
           titulo: "1. Primeiras Ações no Gerenciamento de Crises",
